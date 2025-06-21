@@ -40,40 +40,5 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Mobile menu toggle - fixed version
-document.querySelector('.navbar-toggler').addEventListener('click', function() {
-    const navbar = document.querySelector('#navbarNav');
-    if (navbar.classList.contains('show')) {
-        navbar.classList.remove('show');
-        // Add animation for smooth closing
-        navbar.style.height = navbar.scrollHeight + 'px';
-        setTimeout(() => {
-            navbar.style.height = '0';
-            setTimeout(() => {
-                navbar.style.overflow = 'hidden';
-            }, 300);
-        }, 10);
-    } else {
-        navbar.style.display = 'block';
-        navbar.style.height = '0';
-        navbar.style.overflow = 'hidden';
-        navbar.classList.add('show');
-        setTimeout(() => {
-            navbar.style.height = navbar.scrollHeight + 'px';
-            setTimeout(() => {
-                navbar.style.height = 'auto';
-            }, 300);
-        }, 10);
-    }
-});
-
-// Close menu when clicking outside
-document.addEventListener('click', function(event) {
-    const navbar = document.querySelector('#navbarNav');
-    const toggler = document.querySelector('.navbar-toggler');
-    if (navbar.classList.contains('show') &&
-        !navbar.contains(event.target) &&
-        !toggler.contains(event.target)) {
-        navbar.classList.remove('show');
-    }
-});
+// Mobile menu toggle - simplified version using Bootstrap's built-in functionality
+// No custom JS needed as Bootstrap handles the toggle automatically
